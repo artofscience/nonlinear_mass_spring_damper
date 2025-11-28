@@ -1,3 +1,42 @@
+"""
+Consider the 2nd order ODE:
+
+m[x] * a + d[v] + e[x] = f[t],
+
+where '[.,.]' denotes 'function of'.
+
+or, equivalently, the set of two 1st order ODE:
+
+v = dx/dt
+a = ( f[t] - d[v] - e[x] ) / m[x]
+
+with
+
+position x,
+velocity v,
+acceleration a,
+
+elastic force e[x], e.g. e[x] = kl * x.
+Or e[x] = kl * x + knl * x**3, representing a stiffening spring.
+
+damping force d[v], e.g. d[v] = cl * v.
+Or d[v] = cl * v + cnl * v**2, representing nonlinear damping, for example from a fluidic resistor.
+
+with kl, knl, cl, cnl some coefficients.
+
+harmonic load f[t] = f0 + fh * sin(2*pi * w[t] * t),
+
+with dead load f0, harmonic load magnitude fh and imposed frequency w[t].
+E.g. to apply a frequency sweep, w[t] = s * t,
+with s some proportionality constant driving the frequency as function of time.
+
+mass m[x] = m0 + p * x, with p some displacement-based density of units kg/m.
+E.g. for a 1D bellow, p ~ rho * A, with fluid density rho and bellow area A.
+Note: one has to assure positive mass, e.g. via m0 > p * x for any x.
+Dead load f0 can be used to apply preload, as to indirectly ensure x > 0.
+"""
+
+
 from math import pi
 
 import numpy as np
