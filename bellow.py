@@ -14,11 +14,11 @@ m = lambda x: m0 + rho * A * x  # mass of bellow and fluid
 
 kl = 40  # bellow linear spring constant
 knl = 0.5 # bellow nonlinear spring constant
-fs = lambda x: kl * x + knl * x**3  # elastic force of bellow
+fs = lambda x: kl * x #+ knl * x**3  # elastic force of bellow
 
-cl = 0.1  # bellow linear damping coefficient
+cl = 0.01  # bellow linear damping coefficient
 cnl = 0.01 # bellow nonlinear damping coefficient
-fd = lambda v: cl * v + cnl * v**2  # dissipative force of bellow
+fd = lambda v: cl * v #+ cnl * v**2  # dissipative force of bellow
 
 s = 10000  # speed of frequency sweep
 w = lambda t: t / s  # frequency as function of time in Hertz (cycle/s)
