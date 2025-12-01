@@ -3,12 +3,14 @@ Consider the 2nd order ODE:
 
 m[x] * a + d[v] + e[x] = f[t],
 
+Momentum based would be F = m * a + dm/dt * v
+
 where '[.,.]' denotes 'function of'.
 
 or, equivalently, the set of two 1st order ODE:
 
 v = dx/dt
-a = ( f[t] - d[v] - e[x] ) / m[x]
+a = ( f[t] - d[v] - e[x]) / m[x]
 
 with
 
