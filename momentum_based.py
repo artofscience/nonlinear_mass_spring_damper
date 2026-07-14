@@ -22,18 +22,18 @@ class MSDM(MSD):
 if __name__ == '__main__':
 
     alpha = 0.1
-    m = lambda x: 1e-6 + alpha * x
+    m = lambda x: 6.0 + alpha * x
     dmdt = lambda v: alpha * v
 
-    s = 80000  # speed of frequency sweep
+    s = 400000  # speed of frequency sweep
     w = lambda t: t / s  # frequency as function of time in Hertz (cycle/s)
 
     fe = lambda t: 20 + 0.1 * np.sin(2*pi * w(t) * t)  # external harmonic force
-    fd = lambda v: 0.01 * v
+    fd = lambda v: 0.1 * v
 
     msd = MSDM(m=m, dmdt=dmdt, fe=fe, fd=fd)  # setup mass-spring-damper system
 
-    time = [0.0, 16000]  # time span
+    time = [0.0, 20000]  # time span
     y0 = [20.0, 0.0]  # perturb system with nonzero initial velocity
 
     sol = solve_ivp(msd, time, y0, atol=1e-10, rtol=1e-10)  # solve system

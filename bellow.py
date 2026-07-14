@@ -72,7 +72,7 @@ fe = lambda t: f0 + fh * np.sin(radps * w(t) * t)  # external harmonic force
 msd = MSD(m, fs, fd, fe)  # setup mass-spring-damper
 
 t0 = 5000  # begin time
-tend = 8000  # end time
+tend = 6500  # end time
 
 x0 = msd.fe(t0) / msd.fs(1.0)  # initial position (deflection from dead load)
 v0 = 0.0  # initial velocity
